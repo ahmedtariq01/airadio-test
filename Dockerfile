@@ -71,4 +71,4 @@ CMD service redis-server start && \
     (cd /app/backend && /app/venv/bin/python manage.py migrate && \
      /app/venv/bin/python manage.py collectstatic --noinput && \
      /app/venv/bin/uvicorn radiocms.asgi:application --host 0.0.0.0 --port 8000 --reload) & \
-    (cd /app/frontend && npm install && npm run dev --host 0.0.0.0 --port 3000)
+    (cd /app/frontend && npm install && npm run dev --port 3000)
