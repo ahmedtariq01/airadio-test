@@ -53,7 +53,7 @@ ENV NEXT_IGNORE_TYPE_CHECKING=true
 
 # Set environment variables
 ENV DEBUG=1
-ENV CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://frontend:3000
+ENV CORS_ALLOWED_ORIGINS=http://0.0.0.0:3000,http://0.0.0.0:3000,http://frontend:3000
 ENV POSTGRES_DB=airadio
 ENV POSTGRES_USER=airadio_owner
 ENV POSTGRES_PASSWORD=npg_2hl1bwSCimBQ
@@ -64,7 +64,7 @@ ENV NODE_ENV=development
 RUN cd frontend && npm run build || echo "⚠️ Build failed, but continuing..."
 
 # Expose ports
-EXPOSE 8000 3000 6379
+EXPOSE 8000 3000
 
 # Start services
 CMD service redis-server start && \
