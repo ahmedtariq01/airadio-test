@@ -39,40 +39,12 @@ RUN mkdir -p /app/backend/static /app/backend/media
 # Copy backend application code
 COPY backend/ ./backend
 
-# Set working directory for frontend
-WORKDIR /app/frontend
-
-# Copy only package.json and package-lock.json first to leverage caching
-COPY frontend/package*.json ./
-
-# Install dependencies in the correct directory
-RUN npm install && \
-    npm install -D @types/wavesurfer.js@6.0.12 && \
-    npm install react-beautiful-dnd && \
-    npm install -D @types/react-beautiful-dnd
-
-# Copy the entire frontend code after dependencies are installed
-COPY frontend/ ./
-
-# Disable ESLint and TypeScript checks during build
-ENV NEXT_DISABLE_ESLINT=true
-ENV NEXT_IGNORE_TYPE_CHECKING=true
-ENV NEXT_PUBLIC_API_URL=http://localhost:8000
-ENV NODE_ENV=production
-
-# Build the frontend (if it fails, it continues)
-RUN npm run build
-
-# Set working directory back to /app
-WORKDIR /app
-
 # Expose ports
-EXPOSE 8000 3000
+EXPOSE 8000
 
 # Start services
 CMD ["sh", "-c", "service redis-server start && \
     (cd /app/backend && /app/venv/bin/python manage.py migrate && \
      /app/venv/bin/python manage.py collectstatic --noinput && \
-     /app/venv/bin/uvicorn radiocms.asgi:application --host 0.0.0.0 --port 8000 --reload) & \
-    (cd /app/frontend && npm run start)"]
+     /app/venv/bin/uvicorn radiocms.asgi:application --host 0.0.0.0 --port 8000 --reload)"]
 
