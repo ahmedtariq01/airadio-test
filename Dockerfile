@@ -53,7 +53,7 @@ ENV NEXT_IGNORE_TYPE_CHECKING=true
 
 # Set environment variables
 ENV DEBUG=1
-ENV CORS_ALLOWED_ORIGINS=http://0.0.0.0:3000,http://0.0.0.0:8000,http://frontend:3000
+ENV CORS_ALLOWED_ORIGINS=http://0.0.0.0:3000,http://127.0.0.1:3000,http://frontend:3000
 ENV POSTGRES_DB=airadio
 ENV POSTGRES_USER=airadio_owner
 ENV POSTGRES_PASSWORD=npg_2hl1bwSCimBQ
