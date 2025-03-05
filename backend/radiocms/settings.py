@@ -11,6 +11,10 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-secret-key')
 DEBUG = True# os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*']  # Configure appropriately for production
+CSRF_TRUSTED_ORIGINS = [
+    "https://airadio-test-production.up.railway.app",
+]
+
 
 INSTALLED_APPS = [
     'jazzmin',
