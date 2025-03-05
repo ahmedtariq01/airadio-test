@@ -53,7 +53,7 @@ ENV NEXT_IGNORE_TYPE_CHECKING=true
 
 # Set environment variables
 ENV DEBUG=1
-ENV CORS_ALLOWED_ORIGINS=http://0.0.0.0:3000,http://0.0.0.0:3000,http://frontend:3000
+ENV CORS_ALLOWED_ORIGINS=http://0.0.0.0:3000,http://0.0.0.0:8000,http://frontend:3000
 ENV POSTGRES_DB=airadio
 ENV POSTGRES_USER=airadio_owner
 ENV POSTGRES_PASSWORD=npg_2hl1bwSCimBQ
@@ -71,4 +71,4 @@ CMD service redis-server start && \
     (cd /app/backend && /app/venv/bin/python manage.py migrate && \
      /app/venv/bin/python manage.py collectstatic --noinput && \
      /app/venv/bin/uvicorn radiocms.asgi:application --host 0.0.0.0 --port 8000 --reload) & \
-    (cd /app/frontend && npm install && npm run dev)
+    (cd /app/frontend && npm install && npm run dev --host 0.0.0.0 --port 3000)
