@@ -64,7 +64,7 @@ ENV NODE_ENV=development
 RUN cd frontend && npm run build || echo "⚠️ Build failed, but continuing..."
 
 # Expose ports
-EXPOSE 8000 3000 6379
+EXPOSE 8000 3000
 
 # Start services
 CMD service redis-server start && \
