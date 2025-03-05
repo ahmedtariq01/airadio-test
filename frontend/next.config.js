@@ -9,6 +9,10 @@ const nextConfig = {
       },
     ],
   },
+  swcMinify: true, // Enable SWC minification for faster builds
+  experimental: {
+    turboMode: true, // Enable Turbo Mode (Next.js 14+)
+  },
 };
 
 module.exports = nextConfig;
