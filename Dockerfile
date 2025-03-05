@@ -35,7 +35,7 @@ COPY frontend/ ./
 # Disable ESLint and TypeScript checks during build
 ENV NEXT_DISABLE_ESLINT=true
 ENV NEXT_IGNORE_TYPE_CHECKING=true
-ENV NEXT_PUBLIC_API_URL=http://airadio-test-production.up.railway.app:8000
+ENV NEXT_PUBLIC_API_URL=https://airadio-test-production.up.railway.app
 ENV NODE_ENV=production
 
 # Build the frontend (if it fails, it continues)
