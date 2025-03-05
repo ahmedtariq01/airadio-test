@@ -51,9 +51,6 @@ COPY frontend/ ./frontend
 ENV NEXT_DISABLE_ESLINT=true
 ENV NEXT_IGNORE_TYPE_CHECKING=true
 
-# Run frontend build (ignore errors)
-RUN cd frontend && npm run build || echo "⚠️ Build failed, but continuing..."
-
 # Expose ports
 EXPOSE 8000 3000
 
